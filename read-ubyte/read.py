@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from PIL import Image
 import struct
-
+import os
 
 def read_image(filename):
     f = open(filename, 'rb')
@@ -68,6 +68,7 @@ def read_label(filename, saveFilename):
 
 
 if __name__ == '__main__':
+    os.system('rm -rf test && mkdir test')
     # 以下是1万个检测数据。
     read_image('t10k-images-idx3-ubyte')
     read_label('t10k-labels-idx1-ubyte', 'test/label.txt')
