@@ -31,32 +31,40 @@ for i in range(1000):
     batch_xs, batch_ys = mnist.train.next_batch(500)
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
+
+
+
+print('\n训练结束->开始预测选定的测试集')
+
+# images = mndata.test.images
+# labels = mndata.test.labels
 # 选定测试集
-images = mndata.test.images
-labels = mndata.test.labels
-num = 9006
-image = images[num]
-label = labels[num]
+arr = ['./A000.png', './A001.png', './A002.png', './A003.png', './A004.png']
+for path in arr:
+    image = Image.open('./diy_test_data/{path}'.format(path=path)).convert('L')
 
-# 打印label
-print('这张图片的实际数字是: ' + str(label))
+    print('\n打开{path}'.format(path=path))
 
-# 打印图片
-dmp = np.array(image).reshape(28, 28)
-plt.imshow(dmp, cmap='gray')
-plt.show()
+    # 打印图片
+    dmp = np.array(image).reshape(28, 28)
+    plt.imshow(dmp, cmap='gray')
+    plt.show()
+    content = input("\n按回车键继续")
 
-# 测试新图片，并输出预测值
-a = np.array(image).reshape(1, 784)
-y = tf.nn.softmax(y)  # 为了打印出预测值，我们这里增加一步通过softmax函数处理后来输出一个向量
-result = sess.run(y, feed_dict={x: a})  # result是一个向量，通过索引来判断图片数字
-print('\n\n预测值为：')
-print(result)
+    # 测试新图片，并输出预测值
+    a = np.array(image).reshape(1, 784)
+    y = tf.nn.softmax(y)  # 为了打印出预测值，我们这里增加一步通过softmax函数处理后来输出一个向量
+    result = sess.run(y, feed_dict={x: a})  # result是一个向量，通过索引来判断图片数字
+    print('\n\n预测值为：')
+    print(result)
 
-# 输出结果
-print('\n\n结果：')
-count = 0
-for i in result[0]:
-    if i > 0.2 and i < 2.01:
-        print(str(count))
-    count += 1
+    # 输出结果
+    print('\n\n结果：')
+    count = 0
+    for i in result[0]:
+        if i > 0.1 and i < 2.01:
+            print(str(count))
+        count += 1
+
+    content = input("\n按回车键继续----------------")
+
