@@ -1,4 +1,4 @@
-![logo.png](https://github.com/meloalright/machine-learning/blob/master/logo.png?raw=true)   
+![logo.png](https://raw.githubusercontent.com/meloalright/machine-learning/master/logo.jpg)   
       
 # machine-learning      
       
