@@ -1,3 +1,6 @@
+'''
+ meloalright
+'''
 import numpy as np
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -39,7 +42,7 @@ print('\n训练结束->开始预测选定的测试集')
 # images = mndata.test.images
 # labels = mndata.test.labels
 # 选定测试集
-arr = ['./A000.png', './A001.png', './A002.png', './A003.png', './A004.png']
+arr = ['./A000.png', './A001.png', './A002.png', './A003.png', './A004.png', './A005.png']
 for path in arr:
     image = Image.open('./diy_test_data/{path}'.format(path=path)).convert('L')
 
