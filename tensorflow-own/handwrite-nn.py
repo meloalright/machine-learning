@@ -14,7 +14,6 @@ mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # In this example, we limit mnist data
 Xtr, Ytr = mnist.train.next_batch(5000) #5000 for training (nn candidates)
-#Xte, Yte = mnist.test.next_batch(200) #200 for testing
 
 
 # tf Graph Input
@@ -53,10 +52,10 @@ with tf.Session() as sess:
         # get the reshape 1,784 vector
         a = np.array(image).reshape(784, )
 
-        # Get nearest neighbor
-        nn_index = sess.run(pred, feed_dict={xtr: Xtr, xte: a})
-        nn_label = np.argmax(Ytr[nn_index])
-        print("nn-vector", Ytr[nn_index])
-        print("nn-label", nn_label)
+        # Get nearest neighbor of a
+        nn_index = sess.run(pred, feed_dict={xtr: Xtr, xte: a}) # nn_index - That is the nearest neighbor's index
+        nn_label = np.argmax(Ytr[nn_index]) # nn_label - That is the nearest neighbor's label
+        print("nn-vector", Ytr[nn_index]) # print the nearest neighbor's vector
+        print("nn-label", nn_label) # print the nearest neighbor's label
 
         content = input("\npress enter to continue")
