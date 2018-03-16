@@ -24,6 +24,7 @@ y = tf.matmul(x, W) + b
 y_ = tf.placeholder("float", [None, 10])
 # 使用Tensorflow自带的交叉熵函数
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y)
+# 使用Tensorflow自带的梯度优化训练器 学习率0.01
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 init = tf.global_variables_initializer()
