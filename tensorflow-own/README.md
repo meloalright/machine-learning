@@ -1,6 +1,7 @@
-# tensorflow-own
-
-`ps:自定义的测试集位于 ./diy_test_data`   
+# tensorflow-own   
+   
+   
+`ps:自定义的测试集位于diy_test_data`   
    
 ```
 handwrite-logistic.py 逻辑回归-识别手写数字`       
